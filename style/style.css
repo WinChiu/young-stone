@@ -51,7 +51,7 @@
 }
 
 body {
-  background-image: url("../asset/bg-image.jpg");
+  background-image: url("../asset/bg-image.webp");
   background-repeat: repeat;
   max-width: 100%;
   overflow-x: hidden;
@@ -801,7 +801,7 @@ section {
   padding-right: 128px;
   padding-left: 128px;
   position: relative;
-  background-image: url("../asset/bg-image-white.jpg");
+  background-image: url("../asset/bg-image-white.webp");
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
@@ -1070,7 +1070,7 @@ section {
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
-  background-image: url("../asset/bg-image.jpg");
+  background-image: url("../asset/bg-image.webp");
   background-repeat: repeat;
 }
 #footer img {
