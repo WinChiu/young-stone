@@ -60,7 +60,7 @@ $color-black: #2d2d2d;
   //border: 1px solid red;
 }
 body {
-  background-image: url('../asset/bg-image.jpg');
+  background-image: url('../asset/bg-image.webp');
   background-repeat: repeat;
   max-width: 100%;
   overflow-x: hidden;
@@ -679,7 +679,7 @@ section {
   padding-right: 128px;
   padding-left: 128px;
   position: relative;
-  background-image: url('../asset/bg-image-white.jpg');
+  background-image: url('../asset/bg-image-white.webp');
   background-repeat: repeat;
   @include flex(column, flex-start, center, 64px);
   .black-brush {
@@ -888,7 +888,7 @@ section {
   height: fit-content;
   padding: 32px 48px 16px 48px;
   @include flex(column, flex-start, center, 16px);
-  background-image: url('../asset/bg-image.jpg');
+  background-image: url('../asset/bg-image.webp');
   background-repeat: repeat;
   img {
     height: 48px;
