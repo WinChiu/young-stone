@@ -11,6 +11,10 @@ $gap-desktop: 48px;
 $gap-tablet: 32px;
 $gap-mobile: 24px;
 
+// === 顏色變數，可改用你現有的 $color-primary ===
+$loader-bg: rgba(0, 0, 0, 0.8);
+$loader-accent: #f4c256;
+
 // === section 區塊統一設定 ===
 .section-spacing {
   padding-top: $spacing-xl;
@@ -137,6 +141,83 @@ section {
     padding-right: $container-padding-mobile;
   }
 }
+
+// === Loader 設定 ===
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  //background-color: $color-primary;
+  @include flex(column, center, center, 0);
+  pointer-events: all;
+  opacity: 100;
+  transition-duration: 1s;
+  #loader-logo {
+    max-width: 50%;
+    @media (max-width: 480px) {
+      max-width: calc(100% - 32px);
+    }
+  }
+  background: linear-gradient(270deg, #fff 0 50%, $color-primary 50% 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0; // 一開始把白色那半塊推進可視區
+  animation: paint-wipe 1s linear forwards;
+  @keyframes paint-wipe {
+    to {
+      background-position: 0 0;
+    } // 滾到最左邊 → 全面變成 $color-primary
+  }
+}
+
+// === Billboard 基礎參數，可自訂 ===
+$billboard-bg: rgba(0, 0, 0, 0.75); // 背景遮罩
+$billboard-z: 2100; // 高於 page-loader
+
+#billboard {
+  position: fixed;
+  inset: 0; // full‑screen
+  z-index: $billboard-z;
+  background: $billboard-bg;
+  @include flex(column, center, center, 0); // 置中
+
+  &.hidden {
+    display: none;
+  } // 預設隱藏
+
+  a {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; // 保持比例
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      border-radius: 8px;
+    }
+  }
+
+  // 右上角關閉按鈕
+  .close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    font-size: 32px;
+    line-height: 32px;
+    border: none;
+    background: transparent;
+    color: $color-white;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// === Page 設定 ===
 
 #landing {
   width: 100%;
@@ -368,6 +449,7 @@ section {
   position: relative;
   @include flex(column, flex-start, center, 32px);
   .feature-1-title {
+    padding-top: 128px;
     z-index: 100;
     @include flex(column, flex-start, center, 4px);
     h1 {
@@ -869,20 +951,7 @@ section {
     }
   }
 }
-#badge {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: fit-content;
-  padding: 8px 48px;
-  z-index: 1000;
-  background-color: #c93c1c;
-  p {
-    font-size: 18px;
-    text-align: center;
-  }
-}
+
 #footer {
   width: 100%;
   height: fit-content;
@@ -920,4 +989,293 @@ section {
 #nav.container,
 #footer {
   @include lr-padding;
+}
+
+svg .svg-elem-1 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+}
+
+svg.active .svg-elem-1 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-2 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+}
+
+svg.active .svg-elem-2 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-3 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+}
+
+svg.active .svg-elem-3 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-4 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    0.30000000000000004s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
+}
+
+svg.active .svg-elem-4 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-5 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
+}
+
+svg.active .svg-elem-5 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-6 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s;
+}
+
+svg.active .svg-elem-6 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-7 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    0.6000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.6000000000000001s;
+}
+
+svg.active .svg-elem-7 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-8 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    0.7000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.7000000000000001s;
+}
+
+svg.active .svg-elem-8 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-9 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+}
+
+svg.active .svg-elem-9 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-10 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+}
+
+svg.active .svg-elem-10 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-11 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+}
+
+svg.active .svg-elem-11 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-12 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+}
+
+svg.active .svg-elem-12 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-13 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.2000000000000002s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
+}
+
+svg.active .svg-elem-13 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-14 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+}
+
+svg.active .svg-elem-14 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-15 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.4000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
+}
+
+svg.active .svg-elem-15 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-16 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+}
+
+svg.active .svg-elem-16 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-17 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+}
+
+svg.active .svg-elem-17 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-18 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.7000000000000002s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s;
+}
+
+svg.active .svg-elem-18 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-19 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+}
+
+svg.active .svg-elem-19 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-20 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.9000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s;
+}
+
+svg.active .svg-elem-20 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-21 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+}
+
+svg.active .svg-elem-21 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-22 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+}
+
+svg.active .svg-elem-22 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-23 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+}
+
+svg.active .svg-elem-23 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-24 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    2.3000000000000003s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3000000000000003s;
+}
+
+svg.active .svg-elem-24 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-25 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    2.4000000000000004s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4000000000000004s;
+}
+
+svg.active .svg-elem-25 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-26 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+}
+
+svg.active .svg-elem-26 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-27 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+}
+
+svg.active .svg-elem-27 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-28 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+}
+
+svg.active .svg-elem-28 {
+  fill: rgb(43, 29, 28);
 }
