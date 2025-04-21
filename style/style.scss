@@ -52,15 +52,18 @@ $color-black: #2d2d2d;
 
 @font-face {
   font-family: 'tiza';
-  src: url('../asset/fonts/Tiza.woff2') format('woff2'),
-    url('../asset/fonts/tiza.ttf') format('truetype');
+  src: url('../asset/fonts/Tiza.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'GenJyuuGothic-Normal';
+  src: url('../asset/fonts/GenJyuuGothic-Normal.woff2') format('woff2');
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'GenJyuuGothic-Normal', 'Source Sans 3', sans-serif;
   color: $color-white;
   //border: 1px solid red;
 }
