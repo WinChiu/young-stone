@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: "tiza";
-  src: url("/asset/fonts/tiza.woff2") format("woff2"), url("/asset/fonts/tiza.ttf") format("truetype");
+  src: url("./asset/fonts/tiza.woff2") format("woff2"), url("./asset/fonts/tiza.ttf") format("truetype");
 }
 * {
   margin: 0;
