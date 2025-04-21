@@ -54,10 +54,13 @@ $color-black: #2d2d2d;
   font-family: 'tiza';
   src: url('../asset/fonts/Tiza.woff2') format('woff2');
 }
-
 @font-face {
-  font-family: 'GenJyuuGothic-Normal';
-  src: url('../asset/fonts/GenJyuuGothic-Normal.woff2') format('woff2');
+  font-family: 'GenKiGothic2TW-R';
+  src: url('../asset/fonts/GenYoGothic2TW-R.otf') format('opentype');
+}
+@font-face {
+  font-family: 'GenKiGothic2TW-B';
+  src: url('../asset/fonts/GenYoGothic2TW-B.otf') format('opentype');
 }
 * {
   margin: 0;
@@ -86,6 +89,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+  font-family: 'GenKiGothic2TW-B';
 }
 
 h1 {
@@ -130,6 +134,7 @@ p,
 ul li {
   font-size: 18px;
   line-height: 160%;
+  font-family: 'GenKiGothic2TW-R';
 
   @media (max-width: 480px) {
     font-size: 16px;
