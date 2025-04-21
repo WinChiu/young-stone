@@ -20,11 +20,11 @@ $loader-accent: #f4c256;
   padding-top: $spacing-xl;
   padding-bottom: $spacing-xl;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     padding-top: $spacing-lg;
     padding-bottom: $spacing-lg;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     padding-top: $spacing-md;
     padding-bottom: $spacing-md;
   }
@@ -87,26 +87,51 @@ h6 {
 h1 {
   font-size: 48px;
   line-height: 56px;
-  @media screen and (max-width: 480px) {
-    font-size: 40px;
+
+  @media (max-width: 480px) {
+    font-size: 40px; // 原 40px，再小一些
+    line-height: 40px;
   }
 }
 h2 {
   font-size: 36px;
   line-height: 48px;
+  @media (max-width: 480px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
 }
+
 h3 {
   font-size: 32px;
   line-height: 48px;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
+
 h4 {
   font-size: 22px;
   line-height: 32px;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
-p {
+
+p,
+ul li {
   font-size: 18px;
   line-height: 160%;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 }
+
 ul {
   li {
     font-size: 18px;
@@ -292,7 +317,7 @@ $billboard-z: 2100; // 高於 page-loader
       @include flex(column, flex-start, flex-start, 0px);
       .content {
         @include flex(row, flex-start, center, 24px);
-        img {
+        .icon {
           width: 114px;
         }
         .description {
@@ -304,14 +329,15 @@ $billboard-z: 2100; // 高於 page-loader
           }
           .word-brush-1 {
             top: 24px;
+            left: -8px;
           }
           .word-brush-2 {
             top: 24px;
-            left: 180px;
+            left: 210px;
           }
           .word-brush-3 {
             top: 24px;
-            //left: 180px;
+            left: -16px;
           }
           h3 {
             color: $color-white;
@@ -346,7 +372,7 @@ $billboard-z: 2100; // 高於 page-loader
         margin: 0;
         @include flex(column, center, flex-start, 24px);
         .content {
-          img {
+          .icon {
             display: none;
           }
         }
@@ -354,10 +380,32 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   @media screen and (max-width: 480px) {
+    gap: 16px;
     .keep-your-steak-hot-mobile {
       display: block;
       width: 170%;
       transform: translateX(16px);
+    }
+    .about-1-intro {
+      .container {
+        .content {
+          .description {
+            .word-brush {
+              top: 20px;
+              width: 90px;
+            }
+            .word-brush-1 {
+              left: -8px;
+            }
+            .word-brush-2 {
+              left: 165px;
+            }
+            .word-brush-3 {
+              left: -6px;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -439,6 +487,16 @@ $billboard-z: 2100; // 高於 page-loader
       }
       .dish {
         display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .about-2-intro {
+      .description {
+        .word-brush-4 {
+          top: 16px;
+          right: 200px;
+        }
       }
     }
   }
@@ -533,6 +591,9 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   @media screen and (max-width: 480px) {
+    .feature-1-title {
+      padding: 0;
+    }
     .feature-1-intro-container {
       .feature-1-description {
         padding-right: 16px;
@@ -674,6 +735,16 @@ $billboard-z: 2100; // 高於 page-loader
             max-width: 150%;
           }
         }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .feature-2-intro-container {
+      .set-1 {
+        gap: 8px;
+      }
+      .set-2 {
+        gap: 12px;
       }
     }
   }
@@ -968,7 +1039,6 @@ $billboard-z: 2100; // 高於 page-loader
     text-align: center;
   }
   .portfolio-link {
-    font-size: 16px;
     color: $color-gray;
   }
   @media screen and (max-width: 768px) {
@@ -976,6 +1046,9 @@ $billboard-z: 2100; // 高於 page-loader
   }
   @media screen and (max-width: 480px) {
     padding: 32px 16px 16px 16px;
+  }
+  p {
+    font-size: 14px;
   }
 }
 
