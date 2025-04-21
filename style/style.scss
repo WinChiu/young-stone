@@ -516,11 +516,12 @@ $billboard-z: 2100; // 高於 page-loader
     @include flex(column, flex-start, center, 4px);
     h1 {
       text-align: center;
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
     h2 {
       font-family: 'tiza';
       color: $color-primary;
-      margin-bottom: 8px;
     }
     h4 {
       font-family: 'tiza';
@@ -626,12 +627,15 @@ $billboard-z: 2100; // 高於 page-loader
     h2 {
       font-family: 'tiza';
       color: $color-primary;
-      margin-bottom: 8px;
       text-align: center;
     }
     h4 {
       font-family: 'tiza';
       color: $color-secondary;
+    }
+    h1 {
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
   }
   .feature-2-intro-container {
@@ -766,11 +770,14 @@ $billboard-z: 2100; // 高於 page-loader
     h2 {
       font-family: 'tiza';
       color: $color-primary;
-      margin-bottom: 8px;
     }
     h4 {
       font-family: 'tiza';
       color: $color-secondary;
+    }
+    h1 {
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
   }
   .menu-intro {
@@ -850,10 +857,11 @@ $billboard-z: 2100; // 高於 page-loader
     h2 {
       font-family: 'tiza';
       color: $color-primary;
-      margin-bottom: 8px;
     }
     h1 {
       color: $color-black;
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
   }
   .contact-intro {

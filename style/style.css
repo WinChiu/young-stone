@@ -551,11 +551,12 @@ section {
 }
 #feature-1 .feature-1-title h1 {
   text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 #feature-1 .feature-1-title h2 {
   font-family: "tiza";
   color: #ea5505;
-  margin-bottom: 8px;
 }
 #feature-1 .feature-1-title h4 {
   font-family: "tiza";
@@ -680,12 +681,15 @@ section {
 #feature-2 .feature-2-title h2 {
   font-family: "tiza";
   color: #ea5505;
-  margin-bottom: 8px;
   text-align: center;
 }
 #feature-2 .feature-2-title h4 {
   font-family: "tiza";
   color: #f4c256;
+}
+#feature-2 .feature-2-title h1 {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 #feature-2 .feature-2-intro-container {
   width: 100%;
@@ -869,11 +873,14 @@ section {
 #menu .menu-title h2 {
   font-family: "tiza";
   color: #ea5505;
-  margin-bottom: 8px;
 }
 #menu .menu-title h4 {
   font-family: "tiza";
   color: #f4c256;
+}
+#menu .menu-title h1 {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 #menu .menu-intro {
   display: flex;
@@ -967,10 +974,11 @@ section {
 #contact .contact-title h2 {
   font-family: "tiza";
   color: #ea5505;
-  margin-bottom: 8px;
 }
 #contact .contact-title h1 {
   color: #2d2d2d;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 #contact .contact-intro {
   display: flex;
