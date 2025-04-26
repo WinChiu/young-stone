@@ -505,7 +505,7 @@ section {
   margin-left: 8px;
   display: none;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 768px) {
   #about-2 {
     display: flex;
     flex-direction: column-reverse;
@@ -662,7 +662,7 @@ section {
   #feature-1 .cow-bg {
     width: 100%;
     right: -20%;
-    top: 5%;
+    top: 12%;
     bottom: auto;
   }
 }
@@ -700,8 +700,9 @@ section {
   position: absolute;
   z-index: -1;
   width: 40%;
-  bottom: -10%;
-  right: 48px;
+  top: 25%;
+  left: 48px;
+  transform: rotate(-15deg);
 }
 #feature-2 .feature-2-title {
   display: flex;
@@ -873,11 +874,10 @@ section {
   }
   #feature-2 .shrimp {
     bottom: auto;
-    top: 64px;
+    top: 80px;
     left: -48px;
     right: auto;
     width: 70%;
-    transform: rotate(-15deg);
   }
 }
 @media screen and (max-width: 480px) {
@@ -1237,15 +1237,6 @@ nav {
 }
 #footer p {
   font-size: 14px;
-}
-
-a[href^=tel],
-a[href^=mailto],
-a[href^=sms],
-a[href^=maps] {
-  color: inherit;
-  text-decoration: none;
-  cursor: default;
 }
 
 /* === Override uniform horizontal padding for main sections === */

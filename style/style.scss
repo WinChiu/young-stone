@@ -454,7 +454,7 @@ $billboard-z: 2100; // 高於 page-loader
     margin-left: 8px;
     display: none;
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 768px) {
     @include flex(column-reverse, center, flex-start, 0px);
     .all-you-can-eat {
       display: none;
@@ -586,7 +586,7 @@ $billboard-z: 2100; // 高於 page-loader
     .cow-bg {
       width: 100%;
       right: -20%;
-      top: 5%;
+      top: 12%;
       bottom: auto;
     }
   }
@@ -620,8 +620,9 @@ $billboard-z: 2100; // 高於 page-loader
     position: absolute;
     z-index: -1;
     width: 40%;
-    bottom: -10%;
-    right: 48px;
+    top: 25%;
+    left: 48px;
+    transform: rotate(-15deg);
   }
   .feature-2-title {
     @include flex(column, flex-start, center, 4px);
@@ -747,11 +748,10 @@ $billboard-z: 2100; // 高於 page-loader
     }
     .shrimp {
       bottom: auto;
-      top: 64px;
+      top: 80px;
       left: -48px;
       right: auto;
       width: 70%;
-      transform: rotate(-15deg);
     }
   }
   @media screen and (max-width: 480px) {
@@ -1045,15 +1045,6 @@ nav {
   p {
     font-size: 14px;
   }
-}
-a[href^='tel'],
-a[href^='mailto'],
-a[href^='sms'],
-a[href^='maps'] {
-  color: inherit;
-  text-decoration: none;
-  // pointer-events: none; /* 如果你不想它能被點擊 */
-  cursor: default;
 }
 
 /* === Override uniform horizontal padding for main sections === */
