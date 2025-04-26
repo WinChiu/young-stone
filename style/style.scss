@@ -821,7 +821,7 @@ $billboard-z: 2100; // 高於 page-loader
   @include flex(column, flex-start, center, 64px);
   .black-brush {
     position: absolute;
-    top: -30%;
+    top: -20%;
     width: 120%;
     z-index: 0;
   }
@@ -881,7 +881,11 @@ $billboard-z: 2100; // 高於 page-loader
   }
   @media screen and (max-width: 1200px) {
     .black-brush {
-      top: -20%;
+      top: -18%;
+      width: 130%;
+    }
+    .contact-title {
+      margin-top: 64px;
     }
     .contact-intro {
       @include flex(row, center, flex-start, 48px);
@@ -952,24 +956,6 @@ nav {
   @media (max-width: 480px) {
     display: none;
   }
-  // @media (max-width: 768px) {
-  //   padding: 24px 16px;
-  //   width: 100%;
-  //   @include flex(row, space-between, flex-start, 24px);
-
-  //   .nav-list {
-  //     display: none;
-  //   }
-  // }
-  // @media (max-width: 480px) {
-  //   display: none;
-
-  //   height: 80px;
-  //   overflow: hidden;
-  //   :hover {
-  //     cursor: pointer;
-  //   }
-  // }
 }
 #nav-mobile {
   @include flex(column, flex-start, space-between, 0px);

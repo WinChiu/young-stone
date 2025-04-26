@@ -2,11 +2,12 @@
 setTimeout(() => {
   document.getElementById('loader-logo').classList.add('active');
 }, 1500);
+
 window.addEventListener('load', () => {
   const loader = document.getElementById('page-loader');
   if (!loader) return;
   setTimeout(() => {
     loader.style.opacity = '0';
     setTimeout(() => loader.remove(), 900); // 與 CSS transition 時間一致
-  }, 5500);
+  }, 5000);
 });
