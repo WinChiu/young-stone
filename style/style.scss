@@ -274,6 +274,7 @@ $billboard-z: 2100; // 高於 page-loader
   }
 }
 #about-1 {
+  position: relative;
   width: 100%;
   height: fit-content;
   @include flex(row, center, flex-start, 56px);
@@ -344,8 +345,7 @@ $billboard-z: 2100; // 高於 page-loader
     }
     .keep-your-steak-hot-mobile {
       display: block;
-      width: 150%;
-      transform: translateX(24px);
+      width: calc(100% + 64px);
     }
     .about-1-intro {
       @include flex(column, center, center, 0px);
@@ -366,11 +366,6 @@ $billboard-z: 2100; // 高於 page-loader
   }
   @media screen and (max-width: 480px) {
     gap: 16px;
-    .keep-your-steak-hot-mobile {
-      display: block;
-      width: 170%;
-      transform: translateX(16px);
-    }
     .about-1-intro {
       .container {
         .content {
@@ -394,6 +389,9 @@ $billboard-z: 2100; // 高於 page-loader
           }
         }
       }
+    }
+    .keep-your-steak-hot-mobile {
+      width: calc(100% + 32px);
     }
   }
 }
@@ -443,7 +441,7 @@ $billboard-z: 2100; // 高於 page-loader
     max-height: calc(100dvh - 128px);
   }
   .all-you-can-eat-mobile {
-    max-width: 140%;
+    max-width: 110%;
     margin-left: 8px;
     display: none;
   }
@@ -474,6 +472,7 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   @media screen and (max-width: 480px) {
+    padding-top: 0px;
     .about-2-intro {
       .description {
         .word-brush-4 {
