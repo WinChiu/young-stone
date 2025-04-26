@@ -62,27 +62,25 @@ h6 {
 h1 {
   font-size: 48px;
   line-height: 56px;
-
   @media (max-width: 480px) {
-    font-size: 40px; // 原 40px，再小一些
-    line-height: 40px;
+    font-size: 28px; // 原 40px，再小一些
+    line-height: 24px;
   }
 }
 h2 {
   font-size: 36px;
   line-height: 48px;
   @media (max-width: 480px) {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
 h3 {
   font-size: 32px;
   line-height: 48px;
-
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 32px;
   }
 }
@@ -92,7 +90,7 @@ h4 {
   line-height: 32px;
 
   @media (max-width: 480px) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
   }
 }
@@ -102,9 +100,8 @@ ul li {
   font-size: 18px;
   line-height: 160%;
   font-family: 'GenKiGothic2TW-R';
-
   @media (max-width: 480px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -310,7 +307,6 @@ $billboard-z: 2100; // 高於 page-loader
         width: 100%;
       }
     }
-
     .container {
       @include flex(column, flex-start, flex-start, 38px);
       .content {
@@ -391,12 +387,15 @@ $billboard-z: 2100; // 高於 page-loader
             }
             .word-brush-1 {
               left: -8px;
+              top: 14px;
             }
             .word-brush-2 {
-              left: 165px;
+              left: 145px;
+              top: 14px;
             }
             .word-brush-3 {
               left: -6px;
+              top: 14px;
             }
           }
         }
@@ -484,7 +483,7 @@ $billboard-z: 2100; // 高於 page-loader
     .about-2-intro {
       .description {
         .word-brush-4 {
-          top: 16px;
+          top: 8px;
           right: 200px;
         }
       }
@@ -507,6 +506,10 @@ $billboard-z: 2100; // 高於 page-loader
     h2 {
       font-family: 'tiza';
       color: $color-primary;
+      @media screen and (max-width: 480px) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     h4 {
       font-family: 'tiza';
@@ -593,6 +596,7 @@ $billboard-z: 2100; // 高於 page-loader
   @media screen and (max-width: 480px) {
     .feature-1-title {
       padding: 0;
+      padding: 0;
     }
     .feature-1-intro-container {
       .feature-1-description {
@@ -630,6 +634,10 @@ $billboard-z: 2100; // 高於 page-loader
       font-family: 'tiza';
       color: $color-primary;
       text-align: center;
+      @media screen and (max-width: 480px) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     h4 {
       font-family: 'tiza';
@@ -757,10 +765,10 @@ $billboard-z: 2100; // 高於 page-loader
   @media screen and (max-width: 480px) {
     .feature-2-intro-container {
       .set-1 {
-        gap: 8px;
+        gap: 24px;
       }
       .set-2 {
-        gap: 12px;
+        gap: 26px;
       }
     }
   }
@@ -770,12 +778,15 @@ $billboard-z: 2100; // 高於 page-loader
   height: fit-content;
   position: relative;
   @include flex(column, flex-start, center, 64px);
-
   .menu-title {
     @include flex(column, flex-start, center, 4px);
     h2 {
       font-family: 'tiza';
       color: $color-primary;
+      @media screen and (max-width: 480px) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     h4 {
       font-family: 'tiza';
@@ -857,6 +868,10 @@ $billboard-z: 2100; // 高於 page-loader
     h2 {
       font-family: 'tiza';
       color: $color-primary;
+      @media screen and (max-width: 480px) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     h1 {
       color: $color-black;
@@ -946,6 +961,18 @@ $billboard-z: 2100; // 高於 page-loader
     }
     .contact-title {
       margin-top: 48px;
+      h1 {
+        padding: 0;
+      }
+    }
+    .contact-intro {
+      .reserve-link {
+        .reserve-button {
+          .calendar {
+            width: 20px;
+          }
+        }
+      }
     }
   }
 }

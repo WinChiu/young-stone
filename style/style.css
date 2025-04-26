@@ -48,8 +48,8 @@ h1 {
 }
 @media (max-width: 480px) {
   h1 {
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 28px;
+    line-height: 24px;
   }
 }
 
@@ -59,8 +59,8 @@ h2 {
 }
 @media (max-width: 480px) {
   h2 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
@@ -70,7 +70,7 @@ h3 {
 }
 @media (max-width: 480px) {
   h3 {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 32px;
   }
 }
@@ -81,7 +81,7 @@ h4 {
 }
 @media (max-width: 480px) {
   h4 {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
   }
 }
@@ -95,7 +95,7 @@ ul li {
 @media (max-width: 480px) {
   p,
   ul li {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -432,12 +432,15 @@ section {
   }
   #about-1 .about-1-intro .container .content .description .word-brush-1 {
     left: -8px;
+    top: 14px;
   }
   #about-1 .about-1-intro .container .content .description .word-brush-2 {
-    left: 165px;
+    left: 145px;
+    top: 14px;
   }
   #about-1 .about-1-intro .container .content .description .word-brush-3 {
     left: -6px;
+    top: 14px;
   }
 }
 
@@ -541,7 +544,7 @@ section {
 }
 @media screen and (max-width: 480px) {
   #about-2 .about-2-intro .description .word-brush-4 {
-    top: 16px;
+    top: 8px;
     right: 200px;
   }
 }
@@ -573,6 +576,12 @@ section {
 #feature-1 .feature-1-title h2 {
   font-family: "tiza";
   color: #ea5505;
+}
+@media screen and (max-width: 480px) {
+  #feature-1 .feature-1-title h2 {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 #feature-1 .feature-1-title h4 {
   font-family: "tiza";
@@ -669,6 +678,7 @@ section {
 @media screen and (max-width: 480px) {
   #feature-1 .feature-1-title {
     padding: 0;
+    padding: 0;
   }
   #feature-1 .feature-1-intro-container .feature-1-description {
     padding-right: 16px;
@@ -715,6 +725,12 @@ section {
   font-family: "tiza";
   color: #ea5505;
   text-align: center;
+}
+@media screen and (max-width: 480px) {
+  #feature-2 .feature-2-title h2 {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 #feature-2 .feature-2-title h4 {
   font-family: "tiza";
@@ -882,10 +898,10 @@ section {
 }
 @media screen and (max-width: 480px) {
   #feature-2 .feature-2-intro-container .set-1 {
-    gap: 8px;
+    gap: 24px;
   }
   #feature-2 .feature-2-intro-container .set-2 {
-    gap: 12px;
+    gap: 26px;
   }
 }
 
@@ -910,6 +926,12 @@ section {
 #menu .menu-title h2 {
   font-family: "tiza";
   color: #ea5505;
+}
+@media screen and (max-width: 480px) {
+  #menu .menu-title h2 {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 #menu .menu-title h4 {
   font-family: "tiza";
@@ -997,6 +1019,12 @@ section {
 #contact .contact-title h2 {
   font-family: "tiza";
   color: #ea5505;
+}
+@media screen and (max-width: 480px) {
+  #contact .contact-title h2 {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 #contact .contact-title h1 {
   color: #2d2d2d;
@@ -1109,6 +1137,12 @@ section {
   }
   #contact .contact-title {
     margin-top: 48px;
+  }
+  #contact .contact-title h1 {
+    padding: 0;
+  }
+  #contact .contact-intro .reserve-link .reserve-button .calendar {
+    width: 20px;
   }
 }
 
