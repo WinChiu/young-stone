@@ -770,6 +770,7 @@ $billboard-z: 2100; // 高於 page-loader
   height: fit-content;
   position: relative;
   @include flex(column, flex-start, center, 64px);
+
   .menu-title {
     @include flex(column, flex-start, center, 4px);
     h2 {
