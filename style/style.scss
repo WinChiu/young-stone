@@ -1046,6 +1046,17 @@ nav {
     font-size: 14px;
   }
 }
+// === img fade in animation === //
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 /* === Override uniform horizontal padding for main sections === */
 

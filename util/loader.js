@@ -6,6 +6,8 @@ setTimeout(() => {
 window.addEventListener('load', () => {
   const loader = document.getElementById('page-loader');
   if (!loader) return;
+  setTimeout(() => window.scrollTo(0, 0), 1000);
+
   setTimeout(() => {
     loader.style.opacity = '0';
     setTimeout(() => loader.remove(), 900); // 與 CSS transition 時間一致
