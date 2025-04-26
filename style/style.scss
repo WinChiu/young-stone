@@ -550,6 +550,10 @@ $billboard-z: 2100; // 高於 page-loader
         padding-right: 48px;
       }
     }
+    .cow-bg {
+      right: -20%;
+      bottom: 45%;
+    }
   }
   @media screen and (max-width: 900px) {
     .feature-1-intro-container {
@@ -579,6 +583,12 @@ $billboard-z: 2100; // 高於 page-loader
         }
       }
     }
+    .cow-bg {
+      width: 100%;
+      right: -20%;
+      top: 5%;
+      bottom: auto;
+    }
   }
   @media screen and (max-width: 480px) {
     .feature-1-title {
@@ -597,13 +607,21 @@ $billboard-z: 2100; // 高於 page-loader
   height: fit-content;
   min-height: 980px;
   position: relative;
+  padding-top: 0px;
   @include flex(column, flex-start, center, 64px);
   .stone-square {
     position: absolute;
     width: 105dvw;
     left: -16px;
-    top: 280px;
+    top: 260px;
     z-index: -1;
+  }
+  .shrimp {
+    position: absolute;
+    z-index: -1;
+    width: 40%;
+    bottom: -10%;
+    right: 48px;
   }
   .feature-2-title {
     @include flex(column, flex-start, center, 4px);
@@ -686,10 +704,11 @@ $billboard-z: 2100; // 高於 page-loader
   }
   @media screen and (max-width: 1200px) {
     .stone-square {
-      top: 320px;
+      top: 260px;
     }
   }
   @media screen and (max-width: 768px) {
+    padding-top: 64px;
     .stone-square {
       display: none;
     }
@@ -726,6 +745,14 @@ $billboard-z: 2100; // 高於 page-loader
         }
       }
     }
+    .shrimp {
+      bottom: auto;
+      top: 64px;
+      left: -48px;
+      right: auto;
+      width: 70%;
+      transform: rotate(-15deg);
+    }
   }
   @media screen and (max-width: 480px) {
     .feature-2-intro-container {
@@ -743,7 +770,6 @@ $billboard-z: 2100; // 高於 page-loader
   height: fit-content;
   position: relative;
   @include flex(column, flex-start, center, 64px);
-
   .menu-title {
     @include flex(column, flex-start, center, 4px);
     h2 {
@@ -1018,6 +1044,15 @@ nav {
   p {
     font-size: 14px;
   }
+}
+a[href^='tel'],
+a[href^='mailto'],
+a[href^='sms'],
+a[href^='maps'] {
+  color: inherit;
+  text-decoration: none;
+  // pointer-events: none; /* 如果你不想它能被點擊 */
+  cursor: default;
 }
 
 /* === Override uniform horizontal padding for main sections === */
