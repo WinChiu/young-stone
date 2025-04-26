@@ -1,0 +1,1326 @@
+// === 統一 Spacing 變數 ===
+$container-tb-padding-desktop: 128px;
+$container-tb-padding-tablet: 64px;
+$container-tb-padding-mobile: 64px;
+
+$container-lr-padding-desktop: 64px;
+$container-lr-padding-tablet: 32px;
+$container-lr-padding-mobile: 16px;
+
+// === 顏色變數，可改用你現有的 $color-primary ===
+$loader-bg: rgba(0, 0, 0, 0.8);
+$loader-accent: #f4c256;
+
+$color-primary: #ea5505;
+$color-secondary: #f4c256;
+$color-white: #fff;
+$color-gray: #c6c6c6;
+$color-black: #2d2d2d;
+
+@font-face {
+  font-family: 'tiza';
+  src: url('../asset/fonts/Tiza.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'GenKiGothic2TW-R';
+  src: url('../asset/fonts/GenYoGothic2TW-R.otf') format('opentype');
+}
+@font-face {
+  font-family: 'GenYoGothic2TW-M';
+  src: url('../asset/fonts/GenYoGothic2TW-M.otf') format('opentype');
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'GenJyuuGothic-Normal', 'Source Sans 3', sans-serif;
+  color: $color-white;
+  //border: 1px solid red;
+}
+body {
+  background-image: url('../asset/bg-image.webp');
+  background-repeat: repeat;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  @media screen and (max-width: 768px) {
+    min-width: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: 'GenYoGothic2TW-M';
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 56px;
+
+  @media (max-width: 480px) {
+    font-size: 40px; // 原 40px，再小一些
+    line-height: 40px;
+  }
+}
+h2 {
+  font-size: 36px;
+  line-height: 48px;
+  @media (max-width: 480px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 48px;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 32px;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+p,
+ul li {
+  font-size: 18px;
+  line-height: 160%;
+  font-family: 'GenKiGothic2TW-R';
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+
+ul {
+  li {
+    font-size: 18px;
+    line-height: 160%;
+  }
+}
+.highlight {
+  color: $color-secondary;
+}
+section {
+  overflow-x: clip;
+}
+@mixin flex($direction, $justify, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+// === Responsive Left‑Right Padding Mixin ===
+@mixin lr-padding {
+  padding-left: $container-lr-padding-desktop;
+  padding-right: $container-lr-padding-desktop;
+  @media (max-width: 1199px) {
+    padding-left: $container-lr-padding-tablet;
+    padding-right: $container-lr-padding-tablet;
+  }
+  @media (max-width: 480px) {
+    padding-left: $container-lr-padding-mobile;
+    padding-right: $container-lr-padding-mobile;
+  }
+}
+
+// === section 左右 padding 區塊統一設定 ===
+#about-1,
+#about-2,
+#feature-2,
+#menu,
+#contact,
+#nav.container,
+#footer {
+  @include lr-padding;
+}
+// === section 區塊統一設定 ===
+.section-spacing {
+  padding-top: $container-tb-padding-desktop;
+  padding-bottom: $container-tb-padding-desktop;
+  @media (max-width: 1200px) {
+    padding-top: $container-tb-padding-tablet;
+    padding-bottom: $container-tb-padding-tablet;
+  }
+  @media (max-width: 768px) {
+    padding-top: $container-tb-padding-mobile;
+    padding-bottom: $container-tb-padding-mobile;
+  }
+}
+// === Loader 設定 ===
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  //background-color: $color-primary;
+  @include flex(column, center, center, 0);
+  pointer-events: all;
+  opacity: 100;
+  transition-duration: 1s;
+  #loader-logo {
+    max-width: 50%;
+    @media (max-width: 480px) {
+      max-width: calc(100% - 32px);
+    }
+  }
+  background: linear-gradient(270deg, #fff 0 50%, $color-primary 50% 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0; // 一開始把白色那半塊推進可視區
+  animation: paint-wipe 1s linear forwards;
+  @keyframes paint-wipe {
+    to {
+      background-position: 0 0;
+    } // 滾到最左邊 → 全面變成 $color-primary
+  }
+}
+// === Billboard 基礎參數，可自訂 ===
+$billboard-bg: rgba(0, 0, 0, 0.75); // 背景遮罩
+$billboard-z: 2100; // 高於 page-loader
+
+#billboard {
+  position: fixed;
+  inset: 0; // full‑screen
+  z-index: $billboard-z;
+  background: $billboard-bg;
+  @include flex(column, center, center, 0); // 置中
+
+  &.hidden {
+    display: none;
+  } // 預設隱藏
+
+  a {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; // 保持比例
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      border-radius: 8px;
+    }
+  }
+
+  // 右上角關閉按鈕
+  .close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    font-size: 32px;
+    line-height: 32px;
+    border: none;
+    background: transparent;
+    color: $color-white;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+// === Page 設定 ===
+#landing {
+  width: 100%;
+  height: 100dvh;
+  min-height: 640px;
+  position: relative;
+  .logo-landing {
+    position: absolute;
+    width: 65dvw;
+    left: 0;
+    bottom: 5%;
+  }
+  .food-landing-mobile {
+    display: none;
+  }
+  .food-landing-pc {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50dvw;
+  }
+  @media (max-width: 1200px) {
+    .logo-landing {
+      top: 40%;
+    }
+  }
+  @media (max-width: 768px) {
+    height: fit-content;
+    padding-top: 96px;
+    .logo-landing {
+      width: 100%;
+      min-width: 0px;
+      top: 12%;
+      display: none;
+    }
+    .food-landing-pc {
+      display: none;
+    }
+    .food-landing-mobile {
+      display: block;
+      width: 100%;
+      top: 128px;
+    }
+  }
+}
+#about-1 {
+  width: 100%;
+  height: fit-content;
+  @include flex(row, center, flex-start, 56px);
+  .keep-your-steak-hot-mobile {
+    position: relative;
+    width: 100%;
+    display: none;
+  }
+  .keep-your-steak-hot {
+    flex: 2;
+    position: sticky;
+    top: 15%;
+    max-width: 50%;
+    max-height: calc(100dvh - 128px);
+  }
+  .about-1-intro {
+    flex: 3;
+    @include flex(column, center, flex-start, 0px);
+    .img-container {
+      width: 150%;
+      height: 400px;
+      margin-bottom: 24px;
+      @include flex(column, flex-end, flex-start, 0px);
+      .hot-steak {
+        width: 100%;
+      }
+    }
+
+    .container {
+      @include flex(column, flex-start, flex-start, 38px);
+      .content {
+        @include flex(row, flex-start, center, 24px);
+        .icon {
+          width: 114px;
+        }
+        .description {
+          @include flex(column, flex-start, flex-start, 8px);
+          position: relative;
+          .word-brush {
+            position: absolute;
+            z-index: -1;
+          }
+          .word-brush-1 {
+            top: 24px;
+            left: -8px;
+          }
+          .word-brush-2 {
+            top: 24px;
+            left: 210px;
+          }
+          .word-brush-3 {
+            top: 24px;
+            left: -16px;
+          }
+          h3 {
+            color: $color-white;
+          }
+          p {
+            color: $color-gray;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    @include flex(column, center, center, 48px);
+    .keep-your-steak-hot {
+      display: none;
+    }
+    .keep-your-steak-hot-mobile {
+      display: block;
+      width: 150%;
+      transform: translateX(24px);
+    }
+    .about-1-intro {
+      @include flex(column, center, center, 0px);
+      max-height: 1000px;
+      .img-container {
+        display: none;
+      }
+      .container {
+        margin: 0;
+        @include flex(column, center, flex-start, 24px);
+        .content {
+          .icon {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    gap: 16px;
+    .keep-your-steak-hot-mobile {
+      display: block;
+      width: 170%;
+      transform: translateX(16px);
+    }
+    .about-1-intro {
+      .container {
+        .content {
+          .description {
+            .word-brush {
+              top: 20px;
+              width: 90px;
+            }
+            .word-brush-1 {
+              left: -8px;
+            }
+            .word-brush-2 {
+              left: 165px;
+            }
+            .word-brush-3 {
+              left: -6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#about-2 {
+  width: 100%;
+  height: fit-content;
+  @include flex(row, center, flex-start, 56px);
+  .about-2-intro {
+    flex: 3;
+    @include flex(column, flex-start, flex-end, 48px);
+    .description {
+      @include flex(column, flex-start, flex-start, 24px);
+      position: relative;
+      .word-brush {
+        position: absolute;
+        z-index: -1;
+      }
+      .word-brush-4 {
+        top: 24px;
+        right: 200px;
+      }
+      h2 {
+        text-align: right;
+        color: $color-white;
+        width: 100%;
+      }
+      p {
+        max-width: 600px;
+        text-align: right;
+        color: $color-gray;
+      }
+    }
+    .buffet {
+      width: 100%;
+    }
+    .dish {
+      width: 100%;
+      transform-origin: top center;
+      transform: scale(1.15);
+    }
+  }
+  .all-you-can-eat {
+    flex: 2;
+    position: sticky;
+    top: 10%;
+    max-width: 50%;
+    max-height: calc(100dvh - 128px);
+  }
+  .all-you-can-eat-mobile {
+    max-width: 140%;
+    margin-left: 8px;
+    display: none;
+  }
+  @media screen and (max-width: 1200px) {
+    @include flex(column-reverse, center, flex-start, 0px);
+    .all-you-can-eat {
+      display: none;
+    }
+    .all-you-can-eat-mobile {
+      display: block;
+    }
+    .about-2-intro {
+      margin: 0;
+      @include flex(column, flex-start, flex-start, 48px);
+      .description {
+        .word-brush-4 {
+          right: none;
+          left: 0;
+        }
+        h2,
+        p {
+          text-align: left;
+        }
+      }
+      .dish {
+        display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .about-2-intro {
+      .description {
+        .word-brush-4 {
+          top: 16px;
+          right: 200px;
+        }
+      }
+    }
+  }
+}
+#feature-1 {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  @include flex(column, flex-start, center, 32px);
+  .feature-1-title {
+    z-index: 100;
+    @include flex(column, flex-start, center, 4px);
+    h1 {
+      text-align: center;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    h2 {
+      font-family: 'tiza';
+      color: $color-primary;
+    }
+    h4 {
+      font-family: 'tiza';
+      color: $color-secondary;
+    }
+  }
+  .feature-1-intro-container {
+    @include flex(row, center, flex-end, 56px);
+    position: relative;
+    .denver {
+      //flex: 1;
+      max-width: 50%;
+    }
+    .feature-1-description {
+      flex: 1;
+      padding-right: 64px;
+      padding-bottom: 10%;
+      @include flex(column, center, flex-start, 4px);
+      h4 {
+        font-family: 'tiza';
+        .highlight {
+          font-family: 'tiza';
+        }
+        margin-bottom: 8px;
+      }
+      p {
+        color: $color-gray;
+      }
+    }
+  }
+  .cow-bg {
+    position: absolute;
+    right: -20%;
+    bottom: 25%;
+    width: 60%;
+    z-index: 0;
+  }
+  @media screen and (max-width: 1200px) {
+    .feature-1-intro-container {
+      .feature-1-description {
+        padding-right: 48px;
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .feature-1-intro-container {
+      .feature-1-description {
+        padding-bottom: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .feature-1-intro-container {
+      @include flex(column, center, center, 16px);
+      .denver {
+        max-width: 110%;
+        transform: translateX(-5%);
+        flex-shrink: 0;
+        padding-right: 16px;
+      }
+      .feature-1-description {
+        @include flex(column, center, flex-end, 4px);
+        padding: 0;
+        padding-right: 32px;
+        padding-left: 32px;
+        p,
+        h2,
+        h4 {
+          text-align: right;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .feature-1-title {
+      padding: 0;
+    }
+    .feature-1-intro-container {
+      .feature-1-description {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+    }
+  }
+}
+#feature-2 {
+  width: 100%;
+  height: fit-content;
+  min-height: 980px;
+  position: relative;
+  @include flex(column, flex-start, center, 64px);
+  .stone-square {
+    position: absolute;
+    width: 105dvw;
+    left: -16px;
+    top: 280px;
+    z-index: -1;
+  }
+  .feature-2-title {
+    @include flex(column, flex-start, center, 4px);
+    h2 {
+      font-family: 'tiza';
+      color: $color-primary;
+      text-align: center;
+    }
+    h4 {
+      font-family: 'tiza';
+      color: $color-secondary;
+    }
+    h1 {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+  .feature-2-intro-container {
+    width: 100%;
+    @include flex(column, center, flex-start, 64px);
+    .set-1 {
+      @include flex(row, center, flex-start, 56px);
+      .set-1-description {
+        flex: 1;
+        padding-top: 72px;
+        @include flex(column, flex-start, flex-end, 4px);
+        h3,
+        h4,
+        p {
+          text-align: right;
+        }
+        h4 {
+          font-family: 'tiza';
+          color: $color-secondary;
+          margin-bottom: 8px;
+        }
+        p {
+          color: $color-gray;
+        }
+        h3 {
+          margin-top: 72px;
+        }
+      }
+      .set-1-img-container {
+        flex: 1;
+        .set-1-img {
+          flex: 1;
+          max-width: 200%;
+        }
+      }
+    }
+    .set-2 {
+      @include flex(row, center, flex-end, 56px);
+      .set-2-description {
+        flex: 1;
+        @include flex(column, flex-start, flex-start, 4px);
+        h3,
+        h4,
+        p {
+          text-align: left;
+        }
+        h4 {
+          font-family: 'tiza';
+          color: $color-secondary;
+          margin-bottom: 8px;
+        }
+        p {
+          color: $color-gray;
+        }
+      }
+      .set-2-img-container {
+        flex: 1;
+        @include flex(row, flex-end, flex-start, 0);
+        .set-2-img {
+          flex: 1;
+          max-width: 200%;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .stone-square {
+      top: 320px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .stone-square {
+      display: none;
+    }
+    .feature-2-intro-container {
+      @include flex(column, center, flex-start, 88px);
+      .set-1 {
+        @include flex(column-reverse, center, flex-start, 28px);
+        .set-1-description {
+          padding: 0;
+          @include flex(column, flex-start, flex-start, 4px);
+          p {
+            text-align: left;
+          }
+        }
+        .set-1-img-container {
+          .set-1-img {
+            max-width: 150%;
+          }
+        }
+      }
+      .set-2 {
+        @include flex(column, center, flex-start, 32px);
+        .set-2-description {
+          padding: 0;
+          @include flex(column, flex-start, flex-end, 4px);
+          p {
+            text-align: right;
+          }
+        }
+        .set-2-img-container {
+          .set-2-img {
+            max-width: 150%;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .feature-2-intro-container {
+      .set-1 {
+        gap: 8px;
+      }
+      .set-2 {
+        gap: 12px;
+      }
+    }
+  }
+}
+#menu {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  @include flex(column, flex-start, center, 64px);
+
+  .menu-title {
+    @include flex(column, flex-start, center, 4px);
+    h2 {
+      font-family: 'tiza';
+      color: $color-primary;
+    }
+    h4 {
+      font-family: 'tiza';
+      color: $color-secondary;
+    }
+    h1 {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+  .menu-intro {
+    @include flex(column, center, center, 0px);
+    .environment {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      z-index: -1;
+    }
+    .menu-content {
+      width: 50%;
+      transition-duration: 0.5s;
+      z-index: 100;
+      &:hover {
+        transform: translateX(-5px) translateY(-5px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    // padding-left: 64px;
+    // padding-right: 64px;
+    .menu-intro {
+      .environment {
+        width: 150%;
+      }
+      .menu-content {
+        width: 60%;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .menu-intro {
+      .environment {
+        width: 180%;
+      }
+      .menu-content {
+        width: 80%;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .menu-intro {
+      .environment {
+        width: 180%;
+      }
+      .menu-content {
+        width: 100%;
+      }
+    }
+  }
+}
+#contact {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  background-image: url('../asset/bg-image-white.webp');
+  background-repeat: repeat;
+  @include flex(column, flex-start, center, 64px);
+  .black-brush {
+    position: absolute;
+    top: -30%;
+    width: 120%;
+    z-index: 0;
+  }
+  .contact-title {
+    @include flex(column, flex-start, center, 4px);
+    h2 {
+      font-family: 'tiza';
+      color: $color-primary;
+    }
+    h1 {
+      color: $color-black;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+  .contact-intro {
+    @include flex(row, center, flex-start, 64px);
+    .map {
+      max-width: calc(50% - 32px);
+    }
+    .contact-description {
+      flex: 1;
+      .title-container {
+        @include flex(row, flex-start, center, 8px);
+        h3 {
+          color: $color-black;
+        }
+      }
+      .detail-container {
+        @include flex(column, flex-start, flex-start, 4px);
+        p {
+          color: $color-black;
+        }
+        ul {
+          margin-left: 24px;
+          li {
+            color: $color-black;
+          }
+        }
+      }
+      .reserve-link {
+        text-decoration: none;
+        .reserve-button {
+          margin-top: 32px;
+          @include flex(row, center, center, 8px);
+          width: 100%;
+          padding: 8px 16px;
+          background-color: $color-primary;
+          border-radius: 8px;
+          &:hover {
+            cursor: pointer;
+            background-color: #ff813e;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .black-brush {
+      top: -20%;
+    }
+    .contact-intro {
+      @include flex(row, center, flex-start, 48px);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .black-brush {
+      top: -5%;
+      width: 150%;
+    }
+    .contact-intro {
+      @include flex(column-reverse, center, center, 64px);
+      .map {
+        max-width: 100%;
+      }
+      .contact-description {
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 568px) {
+    .black-brush {
+      top: -10%;
+      width: 250%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .black-brush {
+      top: -12%;
+      width: 250%;
+    }
+    .contact-title {
+      margin-top: 48px;
+    }
+  }
+}
+nav {
+  transition-duration: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  z-index: 1000;
+}
+#nav-pc {
+  @include flex(row, flex-start, center, 24px);
+  padding: 16px 48px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) 29.9%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  .logo {
+    height: 48px;
+  }
+  .nav-list {
+    @include flex(row, flex-start, center, 16px);
+    a {
+      text-decoration: none;
+      color: $color-white;
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 16px 24px;
+  }
+  @media (max-width: 480px) {
+    display: none;
+  }
+  // @media (max-width: 768px) {
+  //   padding: 24px 16px;
+  //   width: 100%;
+  //   @include flex(row, space-between, flex-start, 24px);
+
+  //   .nav-list {
+  //     display: none;
+  //   }
+  // }
+  // @media (max-width: 480px) {
+  //   display: none;
+
+  //   height: 80px;
+  //   overflow: hidden;
+  //   :hover {
+  //     cursor: pointer;
+  //   }
+  // }
+}
+#nav-mobile {
+  @include flex(column, flex-start, space-between, 0px);
+  display: none;
+  overflow-y: hidden;
+  height: 80px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) 15%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  .container {
+    padding: 24px 16px;
+    @include flex(row, space-between, center, 0px);
+    .logo {
+      height: 32px;
+    }
+  }
+  .nav-list {
+    @include flex(column, flex-start, center, 0px);
+    a {
+      width: 100%;
+      text-decoration: none;
+      text-align: center;
+      padding: 12px 0px;
+    }
+  }
+  :hover {
+    cursor: pointer;
+  }
+  @media (max-width: 480px) {
+    display: flex;
+  }
+}
+#footer {
+  width: 100%;
+  height: fit-content;
+  padding: 32px 48px 16px 48px;
+  @include flex(column, flex-start, center, 16px);
+  background-image: url('../asset/bg-image.webp');
+  background-repeat: repeat;
+  img {
+    height: 48px;
+  }
+  p {
+    font-size: 16px;
+    color: $color-gray;
+    text-align: center;
+  }
+  .portfolio-link {
+    color: $color-gray;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 32px 24px 16px 24px;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 32px 16px 16px 16px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+/* === Override uniform horizontal padding for main sections === */
+
+svg .svg-elem-1 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+}
+
+svg.active .svg-elem-1 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-2 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+}
+
+svg.active .svg-elem-2 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-3 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+}
+
+svg.active .svg-elem-3 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-4 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    0.30000000000000004s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
+}
+
+svg.active .svg-elem-4 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-5 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
+}
+
+svg.active .svg-elem-5 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-6 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s;
+}
+
+svg.active .svg-elem-6 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-7 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    0.6000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.6000000000000001s;
+}
+
+svg.active .svg-elem-7 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-8 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    0.7000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.7000000000000001s;
+}
+
+svg.active .svg-elem-8 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-9 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+}
+
+svg.active .svg-elem-9 {
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-10 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+}
+
+svg.active .svg-elem-10 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-11 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+}
+
+svg.active .svg-elem-11 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-12 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+}
+
+svg.active .svg-elem-12 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-13 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.2000000000000002s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
+}
+
+svg.active .svg-elem-13 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-14 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+}
+
+svg.active .svg-elem-14 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-15 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.4000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
+}
+
+svg.active .svg-elem-15 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-16 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+}
+
+svg.active .svg-elem-16 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-17 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+}
+
+svg.active .svg-elem-17 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-18 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.7000000000000002s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s;
+}
+
+svg.active .svg-elem-18 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-19 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+}
+
+svg.active .svg-elem-19 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-20 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    1.9000000000000001s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s;
+}
+
+svg.active .svg-elem-20 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-21 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+}
+
+svg.active .svg-elem-21 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-22 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+}
+
+svg.active .svg-elem-22 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-23 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+}
+
+svg.active .svg-elem-23 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-24 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    2.3000000000000003s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3000000000000003s;
+}
+
+svg.active .svg-elem-24 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-25 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
+    2.4000000000000004s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4000000000000004s;
+}
+
+svg.active .svg-elem-25 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-26 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+}
+
+svg.active .svg-elem-26 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-27 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+}
+
+svg.active .svg-elem-27 {
+  fill: rgb(43, 29, 28);
+}
+
+svg .svg-elem-28 {
+  fill: transparent;
+  -webkit-transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+  transition: fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+}
+
+svg.active .svg-elem-28 {
+  fill: rgb(43, 29, 28);
+}
