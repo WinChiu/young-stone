@@ -167,6 +167,18 @@ section {
   }
 }
 // === Loader 設定 ===
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.flicker {
+  animation: flicker 1s infinite;
+}
 #page-loader {
   position: fixed;
   inset: 0;
@@ -176,6 +188,7 @@ section {
   pointer-events: all;
   opacity: 100;
   transition-duration: 1s;
+
   #loader-logo {
     max-width: 50%;
     @media (max-width: 480px) {

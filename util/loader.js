@@ -1,31 +1,28 @@
-// 等整個頁面（含圖片、字型等）載入完
+// 這邊不用動，提早開啟 loader 的 active
 setTimeout(() => {
   document.getElementById('loader-logo').classList.add('active');
 }, 1500);
 
+setTimeout(() => {
+  document.getElementById('loader-logo').classList.add('flicker');
+}, 5500);
+
+const loader = document.getElementById('page-loader');
+const loaderLogo = document.getElementById('loader-logo');
+let isAnimationFinished = false;
+
 window.addEventListener('load', () => {
-  const loader = document.getElementById('page-loader');
-  if (!loader) return;
-  setTimeout(() => window.scrollTo(0, 0), 500);
-
-  let isLoadDone = false;
-  let isAnimationDone = false;
-
-  // 監聽 load 完成
-  isLoadDone = true;
   tryRemoveLoader();
-
-  // 監聽動畫時間到
-  setTimeout(() => {
-    isAnimationDone = true;
-    tryRemoveLoader();
-  }, 5000); // 你的 SVG 動畫時間
-
-  function tryRemoveLoader() {
-    if (isLoadDone && isAnimationDone) {
-      // 兩個都完成後才開始 fade out
-      loader.style.opacity = '0';
-      setTimeout(() => loader.remove(), 900); // 與你的 CSS transition 時間一致
-    }
-  }
 });
+
+setTimeout(() => {
+  isAnimationFinished = true;
+  tryRemoveLoader();
+}, 5000);
+
+function tryRemoveLoader() {
+  if (isAnimationFinished && document.readyState === 'complete') {
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 500);
+  }
+}
