@@ -1,32 +1,32 @@
 @font-face {
-  font-family: "tiza";
-  src: url("../asset/fonts/Tiza.woff2") format("woff2");
+  font-family: 'tiza';
+  src: url('../asset/fonts/Tiza.woff2') format('woff2');
 }
 @font-face {
-  font-family: "GenKiGothic2TW-R";
-  src: url("../asset/fonts/GenYoGothic2TW-R.otf") format("opentype");
+  font-family: 'GenKiGothic2TW-R';
+  src: url('../asset/fonts/GenYoGothic2TW-R.otf') format('opentype');
 }
 @font-face {
-  font-family: "GenYoGothic2TW-M";
-  src: url("../asset/fonts/GenYoGothic2TW-M.otf") format("opentype");
+  font-family: 'GenYoGothic2TW-M';
+  src: url('../asset/fonts/GenYoGothic2TW-M.otf') format('opentype');
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "GenJyuuGothic-Normal", "Source Sans 3", sans-serif;
+  font-family: 'GenJyuuGothic-Normal', 'Source Sans 3', sans-serif;
   color: #fff;
 }
 
 body {
-  background-image: url("../asset/bg-image.webp");
+  background-image: url('../asset/bg-image.webp');
   background-repeat: repeat;
   max-width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
 }
 body::after {
-  content: "";
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
@@ -50,7 +50,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-family: "GenYoGothic2TW-M";
+  font-family: 'GenYoGothic2TW-M';
 }
 
 h1 {
@@ -101,7 +101,7 @@ p,
 ul li {
   font-size: 18px;
   line-height: 160%;
-  font-family: "GenKiGothic2TW-R";
+  font-family: 'GenKiGothic2TW-R';
 }
 @media (max-width: 480px) {
   p,
@@ -224,7 +224,7 @@ section {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   border-radius: 8px;
 }
@@ -278,6 +278,7 @@ section {
     height: -moz-fit-content;
     height: fit-content;
     padding-top: 96px;
+    margin: 0;
   }
   #landing .logo-landing {
     width: 100%;
@@ -578,11 +579,11 @@ section {
 }
 #feature-1 .feature-1-title h1 {
   text-align: center;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 8px;
+  padding-bottom: 4px;
 }
 #feature-1 .feature-1-title h2 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #ea5505;
 }
 @media screen and (max-width: 480px) {
@@ -592,7 +593,7 @@ section {
   }
 }
 #feature-1 .feature-1-title h4 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #f4c256;
 }
 #feature-1 .feature-1-intro-container {
@@ -617,11 +618,11 @@ section {
   gap: 4px;
 }
 #feature-1 .feature-1-intro-container .feature-1-description h4 {
-  font-family: "tiza";
+  font-family: 'tiza';
   margin-bottom: 8px;
 }
 #feature-1 .feature-1-intro-container .feature-1-description h4 .highlight {
-  font-family: "tiza";
+  font-family: 'tiza';
 }
 #feature-1 .feature-1-intro-container .feature-1-description p {
   color: #c6c6c6;
@@ -686,11 +687,13 @@ section {
 @media screen and (max-width: 480px) {
   #feature-1 .feature-1-title {
     padding: 0;
-    padding: 0;
   }
   #feature-1 .feature-1-intro-container .feature-1-description {
     padding-right: 16px;
     padding-left: 16px;
+  }
+  #feature-1 .feature-1-intro-container .feature-1-description h4 {
+    margin: 0;
   }
 }
 
@@ -730,7 +733,7 @@ section {
   gap: 4px;
 }
 #feature-2 .feature-2-title h2 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #ea5505;
   text-align: center;
 }
@@ -741,12 +744,12 @@ section {
   }
 }
 #feature-2 .feature-2-title h4 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #f4c256;
 }
 #feature-2 .feature-2-title h1 {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 8px;
+  padding-bottom: 4px;
 }
 #feature-2 .feature-2-intro-container {
   width: 100%;
@@ -778,7 +781,7 @@ section {
   text-align: right;
 }
 #feature-2 .feature-2-intro-container .set-1 .set-1-description h4 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #f4c256;
   margin-bottom: 8px;
 }
@@ -816,7 +819,7 @@ section {
   text-align: left;
 }
 #feature-2 .feature-2-intro-container .set-2 .set-2-description h4 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #f4c256;
   margin-bottom: 8px;
 }
@@ -932,7 +935,7 @@ section {
   gap: 4px;
 }
 #menu .menu-title h2 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #ea5505;
 }
 @media screen and (max-width: 480px) {
@@ -942,12 +945,12 @@ section {
   }
 }
 #menu .menu-title h4 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #f4c256;
 }
 #menu .menu-title h1 {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 8px;
+  padding-bottom: 4px;
 }
 #menu .menu-intro {
   display: flex;
@@ -1003,7 +1006,7 @@ section {
   height: -moz-fit-content;
   height: fit-content;
   position: relative;
-  background-image: url("../asset/bg-image-white.webp");
+  background-image: url('../asset/bg-image-white.webp');
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
@@ -1025,7 +1028,7 @@ section {
   gap: 4px;
 }
 #contact .contact-title h2 {
-  font-family: "tiza";
+  font-family: 'tiza';
   color: #ea5505;
 }
 @media screen and (max-width: 480px) {
@@ -1036,8 +1039,8 @@ section {
 }
 #contact .contact-title h1 {
   color: #2d2d2d;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 8px;
+  padding-bottom: 4px;
 }
 #contact .contact-intro {
   display: flex;
@@ -1093,7 +1096,11 @@ section {
   background-color: #ea5505;
   border-radius: 8px;
 }
-#contact .contact-intro .contact-description .reserve-link .reserve-button:hover {
+#contact
+  .contact-intro
+  .contact-description
+  .reserve-link
+  .reserve-button:hover {
   cursor: pointer;
   background-color: #ff813e;
 }
@@ -1146,9 +1153,6 @@ section {
   #contact .contact-title {
     margin-top: 48px;
   }
-  #contact .contact-title h1 {
-    padding: 0;
-  }
   #contact .contact-intro .reserve-link .reserve-button .calendar {
     width: 20px;
   }
@@ -1172,7 +1176,12 @@ nav {
   align-items: center;
   gap: 24px;
   padding: 16px 48px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 29.9%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) 29.9%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
 }
 #nav-pc .logo {
   height: 48px;
@@ -1208,7 +1217,12 @@ nav {
   display: none;
   overflow-y: hidden;
   height: 80px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 15%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) 15%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
 }
 #nav-mobile .container {
   padding: 24px 16px;
@@ -1253,7 +1267,7 @@ nav {
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
-  background-image: url("../asset/bg-image.webp");
+  background-image: url('../asset/bg-image.webp');
   background-repeat: repeat;
 }
 #footer img {
@@ -1542,4 +1556,4 @@ svg .svg-elem-28 {
 
 svg.active .svg-elem-28 {
   fill: rgb(43, 29, 28);
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
