@@ -25,6 +25,17 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: -1;
+}
 @media screen and (max-width: 768px) {
   body {
     min-width: none;
@@ -239,6 +250,7 @@ section {
   width: 100%;
   height: 100dvh;
   min-height: 640px;
+  margin-bottom: 64px;
   position: relative;
 }
 #landing .logo-landing {

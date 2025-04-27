@@ -43,6 +43,17 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); // 調這個數字，0.3 是大概30%黑色
+    pointer-events: none; // 不影響點擊互動
+    z-index: -1; // 注意要比你的內容更底層
+  }
   @media screen and (max-width: 768px) {
     min-width: none;
   }
@@ -233,6 +244,7 @@ $billboard-z: 2100; // 高於 page-loader
   width: 100%;
   height: 100dvh;
   min-height: 640px;
+  margin-bottom: 64px;
   position: relative;
   .logo-landing {
     position: absolute;
