@@ -23,11 +23,11 @@ $color-black: #2d2d2d;
 }
 @font-face {
   font-family: 'GenKiGothic2TW-R';
-  src: url('../asset/fonts/GenYoGothic2TW-R.otf') format('opentype');
+  src: url('../asset/fonts/GenYoGothic2TW-R.woff2') format('woff2');
 }
 @font-face {
   font-family: 'GenYoGothic2TW-M';
-  src: url('../asset/fonts/GenYoGothic2TW-M.otf') format('opentype');
+  src: url('../asset/fonts/GenYoGothic2TW-M.woff2') format('woff2');
 }
 * {
   margin: 0;
@@ -303,7 +303,8 @@ $billboard-z: 2100; // 高於 page-loader
   position: relative;
   width: 100%;
   height: fit-content;
-  @include flex(row, center, flex-start, 56px);
+  margin-top: 10%;
+  @include flex(row, center, flex-start, 36px);
   .keep-your-steak-hot-mobile {
     position: relative;
     width: 100%;
@@ -315,6 +316,11 @@ $billboard-z: 2100; // 高於 page-loader
     top: 15%;
     max-width: 50%;
     max-height: calc(100dvh - 128px);
+    min-height: 430px;
+
+    width: auto;
+    //height: auto;
+    object-fit: contain; /* 或 cover 看你要完整顯示還是填滿 */
   }
   .about-1-intro {
     flex: 3;
@@ -326,6 +332,7 @@ $billboard-z: 2100; // 高於 page-loader
       @include flex(column, flex-end, flex-start, 0px);
       .hot-steak {
         width: 100%;
+        max-width: 950px;
       }
     }
     .container {
@@ -363,6 +370,8 @@ $billboard-z: 2100; // 高於 page-loader
         }
       }
     }
+  }
+  @media screen and (max-width: 1500px) {
   }
   @media screen and (max-width: 768px) {
     @include flex(column, center, center, 48px);
@@ -463,8 +472,12 @@ $billboard-z: 2100; // 高於 page-loader
     flex: 2;
     position: sticky;
     top: 10%;
-    max-width: 50%;
-    max-height: calc(100dvh - 128px);
+    max-width: 35%;
+    max-height: calc(100dvh - 160px);
+    min-height: 525px;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* 或 cover 看你要完整顯示還是填滿 */
   }
   .all-you-can-eat-mobile {
     max-width: 110%;
@@ -875,6 +888,7 @@ $billboard-z: 2100; // 高於 page-loader
   position: relative;
   background-image: url('../asset/bg-image-white.webp');
   background-repeat: repeat;
+  padding-top: 172px;
   @include flex(column, flex-start, center, 64px);
   .black-brush {
     position: absolute;
@@ -986,6 +1000,13 @@ $billboard-z: 2100; // 高於 page-loader
         .reserve-button {
           .calendar {
             width: 20px;
+          }
+        }
+      }
+      .contact-description {
+        .title-container {
+          h3 {
+            font-size: 24px;
           }
         }
       }

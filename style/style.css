@@ -1,14 +1,15 @@
+@charset "UTF-8";
 @font-face {
   font-family: "tiza";
   src: url("../asset/fonts/Tiza.woff2") format("woff2");
 }
 @font-face {
   font-family: "GenKiGothic2TW-R";
-  src: url("../asset/fonts/GenYoGothic2TW-R.otf") format("opentype");
+  src: url("../asset/fonts/GenYoGothic2TW-R.woff2") format("woff2");
 }
 @font-face {
   font-family: "GenYoGothic2TW-M";
-  src: url("../asset/fonts/GenYoGothic2TW-M.otf") format("opentype");
+  src: url("../asset/fonts/GenYoGothic2TW-M.woff2") format("woff2");
 }
 * {
   margin: 0;
@@ -313,11 +314,12 @@ section {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
+  margin-top: 10%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 56px;
+  gap: 36px;
 }
 #about-1 .keep-your-steak-hot-mobile {
   position: relative;
@@ -330,6 +332,10 @@ section {
   top: 15%;
   max-width: 50%;
   max-height: calc(100dvh - 128px);
+  min-height: 430px;
+  width: auto;
+  -o-object-fit: contain;
+     object-fit: contain; /* 或 cover 看你要完整顯示還是填滿 */
 }
 #about-1 .about-1-intro {
   flex: 3;
@@ -351,6 +357,7 @@ section {
 }
 #about-1 .about-1-intro .img-container .hot-steak {
   width: 100%;
+  max-width: 950px;
 }
 #about-1 .about-1-intro .container {
   display: flex;
@@ -518,8 +525,13 @@ section {
   flex: 2;
   position: sticky;
   top: 10%;
-  max-width: 50%;
-  max-height: calc(100dvh - 128px);
+  max-width: 35%;
+  max-height: calc(100dvh - 160px);
+  min-height: 525px;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain; /* 或 cover 看你要完整顯示還是填滿 */
 }
 #about-2 .all-you-can-eat-mobile {
   max-width: 110%;
@@ -1020,6 +1032,7 @@ section {
   position: relative;
   background-image: url("../asset/bg-image-white.webp");
   background-repeat: repeat;
+  padding-top: 172px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1163,6 +1176,9 @@ section {
   }
   #contact .contact-intro .reserve-link .reserve-button .calendar {
     width: 20px;
+  }
+  #contact .contact-intro .contact-description .title-container h3 {
+    font-size: 24px;
   }
 }
 
