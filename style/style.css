@@ -1167,6 +1167,9 @@ section {
   }
 }
 @media screen and (max-width: 480px) {
+  #contact {
+    padding-top: 64px;
+  }
   #contact .black-brush {
     top: -12%;
     width: 250%;

@@ -988,6 +988,7 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   @media screen and (max-width: 480px) {
+    padding-top: 64px;
     .black-brush {
       top: -12%;
       width: 250%;
