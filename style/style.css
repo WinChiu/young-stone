@@ -5,11 +5,11 @@
 }
 @font-face {
   font-family: "GenKiGothic2TW-R";
-  src: url("../asset/fonts/GenYoGothic2TW-R.woff2") format("woff2");
+  src: url("../asset/fonts/GenYoGothic2TW-R.otf") format("opentype");
 }
 @font-face {
   font-family: "GenYoGothic2TW-M";
-  src: url("../asset/fonts/GenYoGothic2TW-M.woff2") format("woff2");
+  src: url("../asset/fonts/GenYoGothic2TW-M.otf") format("opentype");
 }
 * {
   margin: 0;
