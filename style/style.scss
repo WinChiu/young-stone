@@ -832,53 +832,36 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   .menu-intro {
-    @include flex(column, center, center, 0px);
-    .environment {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120%;
-      z-index: -1;
-    }
-    .menu-content {
-      width: 50%;
-      transition-duration: 0.5s;
+    @include flex(row, center, flex-start, 24px);
+    width: 80%;
+
+    a {
+      flex: 1;
+      min-width: 0;
+      height: auto;
       z-index: 100;
-      &:hover {
-        transform: translateX(-5px) translateY(-5px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
+      .menu-content {
+        width: 100%;
+        transition-duration: 0.2s;
+        z-index: 100;
+        &:hover {
+          transform: translateX(-5px) translateY(-5px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+        }
       }
     }
   }
   @media screen and (max-width: 1200px) {
     .menu-intro {
-      .environment {
-        width: 150%;
-      }
-      .menu-content {
-        width: 60%;
-      }
+      width: 100%;
     }
   }
   @media screen and (max-width: 768px) {
     .menu-intro {
-      .environment {
-        width: 180%;
-      }
-      .menu-content {
-        width: 80%;
-      }
-    }
-  }
-  @media screen and (max-width: 480px) {
-    .menu-intro {
-      .environment {
-        width: 180%;
-      }
-      .menu-content {
-        width: 100%;
-      }
+      width: 100%;
+
+      @include flex(column, center, flex-start, 24px);
     }
   }
 }
