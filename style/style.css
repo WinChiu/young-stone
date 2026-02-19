@@ -195,10 +195,6 @@ section {
   pointer-events: all;
   opacity: 100;
   transition-duration: 1s;
-  background: linear-gradient(270deg, #fff 0 50%, #ea5505 50% 100%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  animation: paint-wipe 1s linear forwards;
 }
 #page-loader #loader-logo {
   max-width: 50%;
@@ -207,6 +203,12 @@ section {
   #page-loader #loader-logo {
     max-width: calc(100% - 32px);
   }
+}
+#page-loader {
+  background: linear-gradient(270deg, #fff 0 50%, #ea5505 50% 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: paint-wipe 1s linear forwards;
 }
 @keyframes paint-wipe {
   to {
@@ -643,10 +645,12 @@ section {
 }
 #feature-1 .feature-1-intro-container .feature-1-description h4 {
   font-family: "tiza";
-  margin-bottom: 8px;
 }
 #feature-1 .feature-1-intro-container .feature-1-description h4 .highlight {
   font-family: "tiza";
+}
+#feature-1 .feature-1-intro-container .feature-1-description h4 {
+  margin-bottom: 8px;
 }
 #feature-1 .feature-1-intro-container .feature-1-description p {
   color: #c6c6c6;
@@ -978,7 +982,7 @@ section {
 }
 #menu .menu-intro {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 24px;

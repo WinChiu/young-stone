@@ -832,7 +832,7 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   .menu-intro {
-    @include flex(row, center, flex-start, 24px);
+    @include flex(column, center, flex-start, 24px);
     width: 80%;
 
     a {
@@ -1098,7 +1098,9 @@ nav {
 .scroll-fade-in {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
 
   &.in-view {
     opacity: 1;
