@@ -37,6 +37,17 @@ $color-black: #2d2d2d;
   color: $color-white;
   //border: 1px solid red;
 }
+:root {
+  --layout-root-font-size: clamp(16px, 1.111vw, 24px);
+}
+html {
+  font-size: var(--layout-root-font-size);
+}
+@media (max-width: 768px) {
+  :root {
+    --layout-root-font-size: 16px;
+  }
+}
 body {
   background-image: url('../asset/bg-image.webp');
   background-repeat: repeat;
@@ -71,48 +82,48 @@ h6 {
 }
 
 h1 {
-  font-size: 48px;
-  line-height: 56px;
+  font-size: 3rem;
+  line-height: 3.5rem;
   @media (max-width: 480px) {
-    font-size: 28px; // 原 40px，再小一些
-    line-height: 24px;
+    font-size: 1.75rem; // 原 40px，再小一些
+    line-height: 1.5rem;
   }
 }
 h2 {
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 2.25rem;
+  line-height: 3rem;
   @media (max-width: 480px) {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
   }
 }
 
 h3 {
-  font-size: 32px;
-  line-height: 48px;
+  font-size: 2rem;
+  line-height: 3rem;
   @media (max-width: 480px) {
-    font-size: 18px;
-    line-height: 32px;
+    font-size: 1.125rem;
+    line-height: 2rem;
   }
 }
 
 h4 {
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 1.375rem;
+  line-height: 2rem;
 
   @media (max-width: 480px) {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 1rem;
+    line-height: 1.75rem;
   }
 }
 
 p,
 ul li {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 160%;
   font-family: 'GenKiGothic2TW-R';
   @media (max-width: 480px) {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
@@ -145,7 +156,6 @@ section {
 
 // === section 左右 padding 區塊統一設定 ===
 #about-1,
-#about-2,
 #feature-2,
 #menu,
 #contact,
@@ -206,7 +216,7 @@ section {
   }
 }
 // === Billboard 基礎參數，可自訂 ===
-$billboard-bg: rgba(0, 0, 0, 0.75); // 背景遮罩
+$billboard-bg: rgba(0, 0, 0, 0.25); // 背景遮罩
 $billboard-z: 2100; // 高於 page-loader
 
 #billboard {
@@ -215,38 +225,119 @@ $billboard-z: 2100; // 高於 page-loader
   z-index: $billboard-z;
   background: $billboard-bg;
   @include flex(column, center, center, 0); // 置中
+  padding: 24px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 
   &.hidden {
     display: none;
   } // 預設隱藏
 
-  a {
+  .billboard-card {
     display: block;
-    max-width: 90%;
-    max-height: 90%;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; // 保持比例
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-      border-radius: 8px;
-    }
+    max-width: min(90vw, 720px);
+    max-height: 66.666dvh;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    cursor: default;
   }
 
-  // 右上角關閉按鈕
-  .close-btn {
+  .billboard-image-wrap {
+    position: relative;
+    display: block;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    max-height: 66.666dvh;
+    height: auto;
+    object-fit: contain; // 保持比例
+  }
+
+  .billboard-qr-link {
+    position: absolute;
+    top: 47%;
+    width: 35%;
+    height: 35%;
+    cursor: pointer;
+  }
+
+  .billboard-qr-link-manual {
+    left: 12%;
+  }
+
+  .billboard-qr-link-form {
+    left: 53%;
+  }
+
+  .billboard-close {
     position: absolute;
     top: 24px;
     right: 24px;
     width: 40px;
     height: 40px;
-    font-size: 32px;
-    line-height: 32px;
     border: none;
     background: transparent;
     color: $color-white;
     cursor: pointer;
+    font-size: 2rem;
+    line-height: 2rem;
     transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+#franchise-bottom-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.5rem 0.75rem;
+  background: #d83f0d;
+
+  p {
+    flex: 1;
+    margin: 0;
+    color: $color-white;
+    font-family: 'GenYoGothic2TW-M';
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  a {
+    color: $color-white;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 0.75rem;
+    }
+  }
+
+  .franchise-bottom-close {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: $color-white;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    transition: transform 0.15s ease;
+
     &:hover {
       transform: scale(1.2);
     }
@@ -258,10 +349,23 @@ $billboard-z: 2100; // 高於 page-loader
   height: 100dvh;
   min-height: 640px;
   margin-bottom: 64px;
+  padding: 0;
   position: relative;
+  display: flex;
+  justify-content: center;
+  overflow-x: clip;
+  overflow-y: visible;
+
+  .landing-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 640px;
+  }
+
   .logo-landing {
     position: absolute;
-    width: 65dvw;
+    width: 58%;
     left: 0;
     bottom: 5%;
   }
@@ -272,9 +376,13 @@ $billboard-z: 2100; // 高於 page-loader
     position: absolute;
     right: 0;
     top: 0;
-    width: 50dvw;
+    width: 50%;
   }
   @media (max-width: 1200px) {
+    .landing-inner {
+      width: 100%;
+    }
+
     .logo-landing {
       top: 40%;
     }
@@ -283,6 +391,14 @@ $billboard-z: 2100; // 高於 page-loader
     height: fit-content;
     padding-top: 96px;
     margin: 0;
+    display: block;
+
+    .landing-inner {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+    }
+
     .logo-landing {
       width: 100%;
       min-width: 0px;
@@ -326,7 +442,7 @@ $billboard-z: 2100; // 高於 page-loader
     flex: 3;
     @include flex(column, center, flex-start, 0px);
     .img-container {
-      width: 150%;
+      width: 100%;
       height: 400px;
       margin-bottom: 24px;
       @include flex(column, flex-end, flex-start, 0px);
@@ -380,7 +496,7 @@ $billboard-z: 2100; // 高於 page-loader
     }
     .keep-your-steak-hot-mobile {
       display: block;
-      width: calc(100% + 64px);
+      width: 100%;
     }
     .about-1-intro {
       @include flex(column, center, center, 0px);
@@ -426,18 +542,23 @@ $billboard-z: 2100; // 高於 page-loader
       }
     }
     .keep-your-steak-hot-mobile {
-      width: calc(100% + 32px);
+      width: 100%;
     }
   }
 }
 #about-2 {
   width: 100%;
   height: fit-content;
+  padding-left: 0;
+  padding-right: 0;
   @include flex(row, center, flex-start, 56px);
   .about-2-intro {
     flex: 3;
+    min-width: 0;
     @include flex(column, flex-start, flex-end, 48px);
     .description {
+      width: 100%;
+      padding-left: $container-lr-padding-desktop;
       @include flex(column, flex-start, flex-start, 24px);
       position: relative;
       .word-brush {
@@ -454,7 +575,6 @@ $billboard-z: 2100; // 高於 page-loader
         width: 100%;
       }
       p {
-        max-width: 600px;
         text-align: right;
         color: $color-gray;
       }
@@ -463,9 +583,9 @@ $billboard-z: 2100; // 高於 page-loader
       width: 100%;
     }
     .dish {
+      display: block;
       width: 100%;
-      transform-origin: top center;
-      transform: scale(1.15);
+      transform-origin: left center;
     }
   }
   .all-you-can-eat {
@@ -480,11 +600,13 @@ $billboard-z: 2100; // 高於 page-loader
     object-fit: contain; /* 或 cover 看你要完整顯示還是填滿 */
   }
   .all-you-can-eat-mobile {
-    max-width: 110%;
+    max-width: 100%;
     margin-left: 8px;
     display: none;
   }
   @media screen and (max-width: 768px) {
+    padding-left: $container-lr-padding-tablet;
+    padding-right: $container-lr-padding-tablet;
     @include flex(column-reverse, center, flex-start, 0px);
     .all-you-can-eat {
       display: none;
@@ -512,6 +634,8 @@ $billboard-z: 2100; // 高於 page-loader
   }
   @media screen and (max-width: 480px) {
     padding-top: 0px;
+    padding-left: $container-lr-padding-mobile;
+    padding-right: $container-lr-padding-mobile;
     .about-2-intro {
       .description {
         .word-brush-4 {
@@ -539,8 +663,8 @@ $billboard-z: 2100; // 高於 page-loader
       font-family: 'tiza';
       color: $color-primary;
       @media screen and (max-width: 480px) {
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
       }
     }
     h4 {
@@ -574,7 +698,7 @@ $billboard-z: 2100; // 高於 page-loader
   }
   .cow-bg {
     position: absolute;
-    right: -20%;
+    right: 0;
     bottom: 25%;
     width: 60%;
     z-index: 0;
@@ -586,7 +710,7 @@ $billboard-z: 2100; // 高於 page-loader
       }
     }
     .cow-bg {
-      right: -20%;
+      right: 0;
       bottom: 45%;
     }
   }
@@ -601,8 +725,7 @@ $billboard-z: 2100; // 高於 page-loader
     .feature-1-intro-container {
       @include flex(column, center, center, 16px);
       .denver {
-        max-width: 110%;
-        transform: translateX(-5%);
+        max-width: 100%;
         flex-shrink: 0;
         padding-right: 16px;
       }
@@ -620,7 +743,7 @@ $billboard-z: 2100; // 高於 page-loader
     }
     .cow-bg {
       width: 100%;
-      right: -20%;
+      right: 0;
       top: 12%;
       bottom: auto;
     }
@@ -646,6 +769,7 @@ $billboard-z: 2100; // 高於 page-loader
   min-height: 980px;
   position: relative;
   padding-top: 0px;
+  overflow-x: clip;
   @include flex(column, flex-start, center, 64px);
   .stone-square {
     position: absolute;
@@ -669,8 +793,8 @@ $billboard-z: 2100; // 高於 page-loader
       color: $color-primary;
       text-align: center;
       @media screen and (max-width: 480px) {
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
       }
     }
     h4 {
@@ -791,7 +915,7 @@ $billboard-z: 2100; // 高於 page-loader
     .shrimp {
       bottom: auto;
       top: 80px;
-      left: -48px;
+      left: 0;
       right: auto;
       width: 70%;
     }
@@ -818,8 +942,8 @@ $billboard-z: 2100; // 高於 page-loader
       font-family: 'tiza';
       color: $color-primary;
       @media screen and (max-width: 480px) {
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
       }
     }
     h4 {
@@ -873,20 +997,14 @@ $billboard-z: 2100; // 高於 page-loader
   background-repeat: repeat;
   padding-top: 172px;
   @include flex(column, flex-start, center, 64px);
-  .black-brush {
-    position: absolute;
-    top: -20%;
-    width: 120%;
-    z-index: 0;
-  }
   .contact-title {
     @include flex(column, flex-start, center, 4px);
     h2 {
       font-family: 'tiza';
       color: $color-primary;
       @media screen and (max-width: 480px) {
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
       }
     }
     h1 {
@@ -938,10 +1056,6 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   @media screen and (max-width: 1200px) {
-    .black-brush {
-      top: -18%;
-      width: 130%;
-    }
     .contact-title {
       margin-top: 64px;
     }
@@ -950,10 +1064,6 @@ $billboard-z: 2100; // 高於 page-loader
     }
   }
   @media screen and (max-width: 768px) {
-    .black-brush {
-      top: -5%;
-      width: 150%;
-    }
     .contact-intro {
       @include flex(column-reverse, center, center, 64px);
       .map {
@@ -964,18 +1074,8 @@ $billboard-z: 2100; // 高於 page-loader
       }
     }
   }
-  @media screen and (max-width: 568px) {
-    .black-brush {
-      top: -10%;
-      width: 250%;
-    }
-  }
   @media screen and (max-width: 480px) {
     padding-top: 64px;
-    .black-brush {
-      top: -12%;
-      width: 250%;
-    }
     .contact-title {
       margin-top: 48px;
     }
@@ -990,7 +1090,7 @@ $billboard-z: 2100; // 高於 page-loader
       .contact-description {
         .title-container {
           h3 {
-            font-size: 24px;
+            font-size: 1.5rem;
           }
         }
       }
@@ -1077,7 +1177,7 @@ nav {
     height: 48px;
   }
   p {
-    font-size: 16px;
+    font-size: 1rem;
     color: $color-gray;
     text-align: center;
   }
@@ -1091,7 +1191,7 @@ nav {
     padding: 32px 16px 16px 16px;
   }
   p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 // === img fade in animation === //
