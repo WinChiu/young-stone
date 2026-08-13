@@ -186,12 +186,56 @@
         ></path>
       </svg>
     </div>
-    <!-- <div id="billboard" class="hidden">
-      <a href="https://your-ad-destination.com" target="_blank" rel="noopener">
-        <img src="asset/promotion.webp" alt="Special Promotion" />
-      </a>
-      <button class="close-btn" aria-label="Close ad">&times;</button>
-    </div> -->
+    <div id="billboard" class="hidden" aria-label="加盟招募中">
+      <div class="billboard-card">
+        <div class="billboard-image-wrap">
+          <img src="asset/franchise_ad.webp" alt="洋石岩燒牛排加盟招募中" />
+          <a
+            class="billboard-qr-link billboard-qr-link-manual"
+            href="https://drive.google.com/file/d/1SyjhhhpON_kQHXi7jtS29AT7hMykz7yE/view?usp=drive_link"
+            target="_blank"
+            rel="noopener"
+            aria-label="開啟加盟手冊"
+          ></a>
+          <a
+            class="billboard-qr-link billboard-qr-link-form"
+            href="https://docs.google.com/forms/d/170Ry9t5lRGVoY6aIIY4IQYZX39-tXwe7MRcXs60dIPU/viewform?edit_requested=true&pli=1&pli=1"
+            target="_blank"
+            rel="noopener"
+            aria-label="開啟加盟申請表"
+          ></a>
+        </div>
+      </div>
+      <button
+        class="billboard-close"
+        type="button"
+        aria-label="關閉加盟招募廣告"
+      >
+        &times;
+      </button>
+    </div>
+    <div id="franchise-bottom-bar">
+      <p>
+        洋石岩燒牛排加盟主熱烈招募中！詳細見<a
+          href="https://drive.google.com/file/d/1SyjhhhpON_kQHXi7jtS29AT7hMykz7yE/view?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+          >加盟手冊</a
+        >，或填寫<a
+          href="https://docs.google.com/forms/d/170Ry9t5lRGVoY6aIIY4IQYZX39-tXwe7MRcXs60dIPU/viewform?edit_requested=true&pli=1&pli=1"
+          target="_blank"
+          rel="noopener"
+          >加盟申請表</a
+        >，將有專人聯繫您～
+      </p>
+      <button
+        class="franchise-bottom-close"
+        type="button"
+        aria-label="關閉加盟招募文字條"
+      >
+        &times;
+      </button>
+    </div>
     <nav id="nav-pc">
       <img src="asset/logo-round.svg" alt="" class="logo" />
       <div class="nav-list">
@@ -213,14 +257,16 @@
         <a href="#contact">來店資訊</a>
       </div>
     </nav>
-    <section id="landing" class="section-spacing">
-      <img src="asset/logo-landing.svg" alt="" class="logo-landing" />
-      <img
-        src="asset/food-landing-mobile.webp"
-        alt=""
-        class="food-landing-mobile"
-      />
-      <img src="asset/food-landing-pc.webp" alt="" class="food-landing-pc" />
+    <section id="landing">
+      <div class="landing-inner">
+        <img src="asset/logo-landing.svg" alt="" class="logo-landing" />
+        <img
+          src="asset/food-landing-mobile.webp"
+          alt=""
+          class="food-landing-mobile"
+        />
+        <img src="asset/food-landing-pc.webp" alt="" class="food-landing-pc" />
+      </div>
     </section>
     <section id="about-1" class="section-spacing">
       <img
@@ -389,7 +435,6 @@
       </article>
     </section>
     <section id="contact" class="section-spacing">
-      <img src="asset/black-brush.webp" alt="" class="black-brush" />
       <div class="contact-title scroll-fade-in">
         <h2>VISIT US</h2>
         <h1>來店資訊</h1>
@@ -446,6 +491,7 @@
         >
       </p>
     </footer>
+    <script src="util/layout-scale.js"></script>
     <script type="module" src="util/nav.js"></script>
     <script type="module" src="util/loader.js"></script>
     <script type="module" src="util/billboard.js" defer></script>
